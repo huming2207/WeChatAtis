@@ -90,5 +90,5 @@ def get_met_briefing(query_location, cookiejar, url = "https://www.airservicesau
     return met_str
 
 if __name__ == "__main__":
-    get_met_briefing("YMML", napis_user_login(get_initial_cookie(), naips_account.naips_username, naips_account.naips_password))
+    print(get_met_briefing("YMML", napis_user_login(get_initial_cookie(), naips_account.naips_username, naips_account.naips_password)))
 
