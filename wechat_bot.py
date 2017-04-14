@@ -5,7 +5,9 @@ import naips_bot, naips_account
 itchatmp.update_config(itchatmp.WechatConfig(
     token = wechat_bot_account.wechat_token,
     appId = wechat_bot_account.wechat_mp_appid,
-    appSecret = wechat_bot_account.wechat_mp_appkey))
+    appSecret = wechat_bot_account.wechat_mp_appkey,
+    encryptMode = itchatmp.content.SAFE,
+    encodingAesKey = wechat_bot_account.wechat_mp_aeskey))
 
 
 @itchatmp.msg_register(itchatmp.content.TEXT)
