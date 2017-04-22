@@ -12,12 +12,21 @@ itchatmp.update_config(itchatmp.WechatConfig(
 
 @itchatmp.msg_register(itchatmp.content.TEXT)
 def text_reply(msg):
-    msg_str = msg['Content']
-    naips_str = naips_bot.get_met_briefing("YMML", naips_bot.napis_user_login(naips_bot.get_initial_cookie(), naips_account.naips_username, naips_account.naips_password))
+    msg_str = str(msg['Content']).upper().split(" ")
 
-    if "ymml atis" or "YMML ATIS" or "ymml" or "YMML" in msg_str:
+    if "ATIS" in msg_str[0]:
+        if len(msg_str[1]) == 4 and msg_str[1].isalpha():
 
-        return naips_str
+            naips_str = naips_bot.get_met_briefing(msg_str[1],
+                                                   naips_bot.napis_user_login(naips_bot.get_initial_cookie(),
+                                                                              naips_account.naips_username,
+                                                                              naips_account.naips_password))
+            return naips_str
+
+        else:
+            return str("Wrong airport code, please check again. Your message is: " + msg['Content'])
+
+
 
 
 
