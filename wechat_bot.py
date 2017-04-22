@@ -17,9 +17,8 @@ def text_reply(msg):
 
     if "ymml atis" or "YMML ATIS" or "ymml" or "YMML" in msg_str:
 
-        itchatmp.send({
-            'MsgType': itchatmp.content.IMAGE,
-            'FileDir': 'test.jpg' }, msg["FromUserName"])
+        return naips_str
+
 
 
 itchatmp.run(port=80, debug=True)
