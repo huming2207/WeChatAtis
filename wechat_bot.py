@@ -17,11 +17,14 @@ def text_reply(msg):
     if "ATIS" in msg_str[0]:
         if len(msg_str[1]) == 4 and msg_str[1].isalpha():
 
-            naips_str = str(naips_bot.get_met_briefing(msg_str[1],
+            copyright_msg = "Data sourced from Airservice Australia NAIPS system, " \
+                            "for personal research or educational uses only.\n\n"
+
+            naips_str = copyright_msg + str(naips_bot.get_met_briefing(msg_str[1],
                                                    naips_bot.napis_user_login(naips_bot.get_initial_cookie(),
                                                                               naips_account.naips_username,
                                                                               naips_account.naips_password)))
-            return naips_str.split("-------------------")[1]
+            return naips_str
 
         else:
             return str("Wrong airport code, please check again. Your message is: " + msg['Content'])

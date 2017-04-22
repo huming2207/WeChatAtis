@@ -56,7 +56,7 @@ def get_met_briefing(query_location, cookiejar, url = "https://www.airservicesau
 
     query_post_data = urllib.parse.urlencode(
         {
-            "DomesticOnly": "true",
+            "DomesticOnly": "false",
             "Locations[0]": query_location,
             "Locations[1]": "",
             "Locations[2]": "",
@@ -87,7 +87,7 @@ def get_met_briefing(query_location, cookiejar, url = "https://www.airservicesau
     html_parser = BeautifulSoup(result_html, "lxml")
     met_str = html_parser.find_all("pre", {"class": "briefing"})[0].string
 
-    return met_str
+    return str(met_str).split("-------------------\n\n")[1]     # Remove headers
 
 if __name__ == "__main__":
     print(get_met_briefing("YMML", napis_user_login(get_initial_cookie(), naips_account.naips_username, naips_account.naips_password)))
