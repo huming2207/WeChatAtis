@@ -17,8 +17,9 @@ def text_reply(msg):
     if "ATIS" in msg_str[0]:
         if len(msg_str[1]) == 4 and msg_str[1].isalpha():
 
-            copyright_msg = "Data sourced from Airservice Australia NAIPS system, " \
-                            "for personal research or educational uses only.\n\n"
+            copyright_msg = "Data sourced from Airservice Australia NAIPS system," \
+                            "for personal research or educational uses only.\n" \
+                            "DO NOT USE IT FOR REAL FLIGHTS!!\n\n"
 
             naips_str = copyright_msg + str(naips_bot.get_met_briefing(msg_str[1],
                                                    naips_bot.napis_user_login(naips_bot.get_initial_cookie(),
