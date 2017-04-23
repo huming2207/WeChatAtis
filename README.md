@@ -18,18 +18,18 @@ Then, create two python files:
 
 1. ```naips_account.py```
 
-	```python3
+	```python
 	naips_username = "your_naips_account_username"
 	naips_password = "your_naips_account_password"
 	```
 
 2. ```wechat_bot_account.py```
 
-	```python3
+	```python
 	wechat_mp_appid = "your_mp_appid_or_copid"
-wechat_mp_appkey = "your_mp_appkey"
-wechat_mp_aeskey = "your_aes_key"
-wechat_token = "your_token"
+	wechat_mp_appkey = "your_mp_appkey"
+	wechat_mp_aeskey = "your_aes_key"
+	wechat_token = "your_token"
 	```
 	
 Now you can play with it, simply run ```python3 wechat_bot.py``` and it should works as expected. 
